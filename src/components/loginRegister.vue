@@ -145,6 +145,7 @@ import axios from 'axios'
           })
             .then(res => {
               //this.msg = res.data.success
+              console.log(res.data)
               switch(res.data.state){
                 case 0:
                   alert("注册成功！");

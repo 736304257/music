@@ -91,7 +91,8 @@ import axios from 'axios'
             this.randomNumber = this.getRandomFromBackend()
           },
           getRandomFromBackend(){
-            const path = 'http://localhost:5000/api/random'
+            //const path = 'http://localhost:5000/api/random'
+            const path = 'http://39.97.228.158/api/random'
             //const path = 'http://182.92.127.144/api/random'
             axios.get(path)
             .then(response => {

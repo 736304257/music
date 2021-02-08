@@ -12,6 +12,12 @@ import 'ant-design-vue/dist/antd.css'
 import App from './App'
 import axios from 'axios'
 import router from './router/index'
+import './assets/icon/iconfont.css'
+import qs from 'qs'
+
+
+//定义全局变量
+Vue.prototype.$qs = qs
 
 Vue.component(Button.name, Button)
 Vue.component(Avatar.name, Avatar)
@@ -38,7 +44,8 @@ new Vue({
 
 //axios.defaults.baseURL = 'http://182.92.127.144'
 axios({
-  url:'http://localhost:5000/'
+  //url:'http://localhost:5000/'
+  url:'http://39.97.228.158'//zwz
   //url:'http://182.92.127.144/'
 }).then(res => {
   console.log(res);

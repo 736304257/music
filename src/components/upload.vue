@@ -1,16 +1,20 @@
 <template>
   <div>
     <a-layout style="padding: 0 24px 24px">
-      <a-breadcrumb style="margin: 16px 0">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
-      </a-breadcrumb>
       <a-layout-content
         :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
-        <div class="upload-demo">
+        <div class="upload-demo" v-show="!musicplay">
           <input type="file" ref="fileInt" @change="changeHandle">
+          <router-link to="/music">
+          <button @click="play">音乐</button>
+          </router-link>
+          <router-link to="/recommend">
+          <button>评论</button>
+          </router-link>
+        </div>
+        <div v-show="musicplay" class="body">
+          <router-view></router-view>
         </div>
       </a-layout-content>
     </a-layout>
@@ -24,7 +28,8 @@ import axios from 'axios'
         name: "upload",
         data() {
           return {
-            musicfile:''
+            musicfile:'',
+            musicplay: false
           }
         },
         methods: {
@@ -47,8 +52,16 @@ import axios from 'axios'
             }).catch(err => {
               console.log(err);
             });
+          },
+          play(){
+            const self=this;
+            self.musicplay = true;
+          },
+          display(){
+            const self=this;
+            self.musicplay = false;
           }
-        },
+        }
     }
 </script>
 

@@ -5,6 +5,9 @@ import UpLoad from '../components/upload'
 import About from '../components/about'
 import Register from '../components/register'
 import LoginRegister from '../components/loginRegister'
+import Player from '../components/player'
+import Music from '../components/music'
+import Recommend from '../components/recommend'
 
 //1.通过Vue.use(插件),安装插件
 Vue.use(VueRouter)
@@ -30,6 +33,18 @@ const routes=[
   {
     path:'/loginRegister',
     component:LoginRegister
+  },
+  {
+    path:'/player',
+    component:Player
+  },
+  {
+    path:'/music',
+    component:Music
+  },
+  {
+    path:'/recommend',
+    component:Recommend
   }
 ]
 const router = new VueRouter({
